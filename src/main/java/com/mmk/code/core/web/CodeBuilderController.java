@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -97,23 +97,23 @@ public class CodeBuilderController {
 		
 		HttpSession session = SessionUtils.getSession();
 		
-		session.setAttribute("model", StringEscapeUtils.escapeHtml(modelcode));
-		session.setAttribute("condition", StringEscapeUtils.escapeHtml(condition));
-		session.setAttribute("repository", StringEscapeUtils.escapeHtml(repository));
-		session.setAttribute("dao", StringEscapeUtils.escapeHtml(dao));
-		session.setAttribute("daoImpl", StringEscapeUtils.escapeHtml(daoImpl));
-		session.setAttribute("service", StringEscapeUtils.escapeHtml(service));
-		session.setAttribute("serviceImpl", StringEscapeUtils.escapeHtml(serviceImpl));
-		session.setAttribute("controller", StringEscapeUtils.escapeHtml(controller));
+		session.setAttribute("model", StringEscapeUtils.escapeHtml3(modelcode));
+		session.setAttribute("condition", StringEscapeUtils.escapeHtml3(condition));
+		session.setAttribute("repository", StringEscapeUtils.escapeHtml3(repository));
+		session.setAttribute("dao", StringEscapeUtils.escapeHtml3(dao));
+		session.setAttribute("daoImpl", StringEscapeUtils.escapeHtml3(daoImpl));
+		session.setAttribute("service", StringEscapeUtils.escapeHtml3(service));
+		session.setAttribute("serviceImpl", StringEscapeUtils.escapeHtml3(serviceImpl));
+		session.setAttribute("controller", StringEscapeUtils.escapeHtml3(controller));
 		//页面部分
-		session.setAttribute("list", StringEscapeUtils.escapeHtml(list));
-		session.setAttribute("form", StringEscapeUtils.escapeHtml(form));
-		session.setAttribute("details", StringEscapeUtils.escapeHtml(details));
+		session.setAttribute("list", StringEscapeUtils.escapeHtml3(list));
+		session.setAttribute("form", StringEscapeUtils.escapeHtml3(form));
+		session.setAttribute("details", StringEscapeUtils.escapeHtml3(details));
 		
 		//js部分预览代码
-		session.setAttribute("listjs",StringEscapeUtils.escapeHtml(listjs));
-		session.setAttribute("formjs",StringEscapeUtils.escapeHtml(formjs));
-		session.setAttribute("detailsjs",StringEscapeUtils.escapeHtml(detailsjs));
+		session.setAttribute("listjs",StringEscapeUtils.escapeHtml3(listjs));
+		session.setAttribute("formjs",StringEscapeUtils.escapeHtml3(formjs));
+		session.setAttribute("detailsjs",StringEscapeUtils.escapeHtml3(detailsjs));
 		
 		Map<String, Object> result = new HashMap<String,Object>();
 		result.put("success", true);

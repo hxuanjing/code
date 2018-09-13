@@ -10,11 +10,10 @@
 
 	<name>code</name>
 	<description>Demo project for Spring Boot</description>
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.1.RELEASE</version>
+		<version>1.5.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -28,10 +27,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-velocity</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +44,29 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.velocity</groupId>
+		    <artifactId>velocity</artifactId>
+		    <version>1.7</version>
+		</dependency>
+				
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -84,7 +102,7 @@
       <id>central</id>
       <name>Maven Repository Switchboard</name>
       <layout>default</layout>
-      <url>http://192.168.1.3:8081/nexus/content/repositories/central/</url>
+      <url>http://192.168.2.122:8081/nexus/content/repositories/central/</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
@@ -93,18 +111,18 @@
       <id>public</id>
       <name>Maven Repository public</name>
       <layout>default</layout>
-      <url>http://192.168.1.3:8081/nexus/content/groups/public/</url>
+      <url>http://192.168.2.122:8081/nexus/content/groups/public/</url>
     </repository>
   </repositories>
 
   <distributionManagement>
     <repository>
       <id>releases</id>
-      <url>http://192.168.1.3:8081/nexus/content/repositories/releases/</url>
+      <url>http://192.168.2.122:8081/nexus/content/repositories/releases/</url>
     </repository>
     <snapshotRepository>
       <id>snapshots</id>
-      <url>http://192.168.1.3:8081/nexus/content/repositories/snapshots/</url>
+      <url>http://192.168.2.122:8081/nexus/content/repositories/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 
