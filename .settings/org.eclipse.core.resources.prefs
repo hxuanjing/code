@@ -1,5 +1,11 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
+encoding//src/main/resources/static/template.json=UTF-8
+encoding//src/main/resources/templates=UTF-8
+encoding//src/main/resources/templates/api/code/controller.html=UTF-8
+encoding//src/main/resources/templates/qnui/code=UTF-8
+encoding//src/main/resources/templates/qnui/code/condition.html=UTF-8
+encoding//src/main/resources/templates/qnui/code/controller.html=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8
