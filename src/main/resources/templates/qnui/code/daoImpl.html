@@ -32,7 +32,6 @@ import ${model.packageName}.${model.modulePackage}.condition.${model.model}Condi
 @Repository
 public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}> implements ${model.model}Dao {
     
-    private Log log = LogFactory.getLog(this.getClass());
     
     public ${model.model}DaoImpl(){
         super(${model.model}.class);
@@ -207,7 +206,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
     public List<${model.model}> findAllBy(String field,Object value){
         StringBuffer sb=new StringBuffer("select model from ${model.model} model  where model.");
         sb.append(field);
-       sb.append(" = :value ");
+        sb.append(" = :value ");
         Map<String,Object> params = new HashMap<String,Object>();
         params.put("value",value);
         return queryByJpql(sb.toString(), params);

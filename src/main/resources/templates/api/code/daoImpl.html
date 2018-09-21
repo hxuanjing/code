@@ -32,7 +32,6 @@ import ${model.packageName}.${model.modulePackage}.condition.${model.model}Condi
 @Repository
 public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}> implements ${model.model}Dao {
     
-    private Log log = LogFactory.getLog(this.getClass());
     
     public ${model.model}DaoImpl(){
         super(${model.model}.class);
@@ -48,7 +47,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
      */
     @Override 
     public Page<${model.model}> list(${model.model}Condition ${model.modelL}Condition,Pageable pageable){
-        StringBuffer sb=new StringBuffer("select model from ${model.model} model  where 1=1  ");
+        StringBuilder sb=new StringBuilder("select model from ${model.model} model  where 1=1  ");
         Map<String,Object> params = new HashMap<String,Object>();
 #foreach($field in $fieldList)
 #if($field.type=="String")
@@ -106,7 +105,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
 
     @Override 
     public List<${model.model}> list(${model.model}Condition ${model.modelL}Condition){
-        StringBuffer sb=new StringBuffer("select model from ${model.model} model  where 1=1  ");
+        StringBuilder sb=new StringBuilder("select model from ${model.model} model  where 1=1  ");
         Map<String,Object> params = new HashMap<String,Object>();
 #foreach($field in $fieldList)
 #if($field.type=="String")
@@ -146,7 +145,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
     
     @Override 
     public Page< Map<String,Object>> listBySql(${model.model}Condition condition,Pageable pageable){
-        StringBuffer sb=new StringBuffer("select #foreach($field in $fieldList)#if($!{velocityCount}!=1),#end${field.columnName}#end from ${model.tableName}  where 1=1  ");
+        StringBuilder sb=new StringBuilder("select #foreach($field in $fieldList)#if($!{velocityCount}!=1),#end${field.columnName}#end from ${model.tableName}  where 1=1  ");
         Map<Integer,Object> params = new HashMap<Integer,Object>();
 #foreach($field in $fieldList)
 #if($field.type=="String")
@@ -194,7 +193,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
     
     @Override 
     public ${model.model} findBy(String field,Object value){
-        StringBuffer sb=new StringBuffer("select model from ${model.model} model  where model.");
+        StringBuilder sb=new StringBuilder("select model from ${model.model} model  where model.");
         sb.append(field);
         sb.append(" = :value ");
         Map<String,Object> params = new HashMap<String,Object>();
@@ -205,9 +204,9 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
     
     @Override 
     public List<${model.model}> findAllBy(String field,Object value){
-        StringBuffer sb=new StringBuffer("select model from ${model.model} model  where model.");
+        StringBuilder sb=new StringBuilder("select model from ${model.model} model  where model.");
         sb.append(field);
-       sb.append(" = :value ");
+        sb.append(" = :value ");
         Map<String,Object> params = new HashMap<String,Object>();
         params.put("value",value);
         return queryByJpql(sb.toString(), params);
