@@ -48,7 +48,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
     @Override 
     public Page<${model.model}> list(${model.model}Condition ${model.modelL}Condition,Pageable pageable){
         StringBuilder sb=new StringBuilder("select model from ${model.model} model  where 1=1  ");
-        Map<String,Object> params = new HashMap<>();
+        Map<String,Object> params = new HashMap<>(16);
 #foreach($field in $fieldList)
 #if($field.type=="String")
 #if($field.matchType == 'any')
@@ -106,7 +106,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
     @Override 
     public List<${model.model}> list(${model.model}Condition ${model.modelL}Condition){
         StringBuilder sb=new StringBuilder("select model from ${model.model} model  where 1=1  ");
-        Map<String,Object> params = new HashMap<>();
+        Map<String,Object> params = new HashMap<>(16);
 #foreach($field in $fieldList)
 #if($field.type=="String")
 #if($field.matchType == 'any')
@@ -146,7 +146,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
     @Override 
     public Page< Map<String,Object>> listBySql(${model.model}Condition condition,Pageable pageable){
         StringBuilder sb=new StringBuilder("select #foreach($field in $fieldList)#if($!{velocityCount}!=1),#end${field.columnName}#end from ${model.tableName}  where 1=1  ");
-        Map<Integer,Object> params = new HashMap<Integer,Object>();
+        Map<Integer,Object> params = new HashMap<>(16);
 #foreach($field in $fieldList)
 #if($field.type=="String")
 #if($field.matchType == 'any')
@@ -196,7 +196,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
         StringBuilder sb=new StringBuilder("select model from ${model.model} model  where model.");
         sb.append(field);
         sb.append(" = :value ");
-        Map<String,Object> params = new HashMap<>();
+        Map<String,Object> params = new HashMap<>(16);
         params.put("value",value);
         List<${model.model}> result = queryByJpql(sb.toString(), params,0l,1l);
         return result.isEmpty() ? null : result.get(0);
@@ -207,7 +207,7 @@ public class ${model.model}DaoImpl extends SpringDataQueryDaoImpl<${model.model}
         StringBuilder sb=new StringBuilder("select model from ${model.model} model  where model.");
         sb.append(field);
         sb.append(" = :value ");
-        Map<String,Object> params = new HashMap<>();
+        Map<String,Object> params = new HashMap<>(16);
         params.put("value",value);
         return queryByJpql(sb.toString(), params);
     }
