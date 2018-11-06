@@ -1,7 +1,6 @@
 package com.mmk.code.core.service.impl;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,7 +77,7 @@ public class CodeBuilderServiceImpl implements CodeBuilderService {
 		Map<String, Object> result = new LinkedHashMap<String, Object>();
 		for (Field field : fieldList) {
 			if ("String".equals(field.getType()) || "Long".equals(field.getType()) || "Integer".equals(field.getType())
-					|| "Float".equals(field.getType()) || "Double".equals(field.getType())) 
+					|| "Float".equals(field.getType()) || "BigDecimal".equals(field.getType())) 
 			{
 				continue;
 			}
