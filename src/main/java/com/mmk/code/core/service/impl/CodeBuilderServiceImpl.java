@@ -76,10 +76,12 @@ public class CodeBuilderServiceImpl implements CodeBuilderService {
 	private Map<String, Object> modelImport(List<Field> fieldList) {
 		Map<String, Object> result = new LinkedHashMap<String, Object>();
 		for (Field field : fieldList) {
-			if ("String".equals(field.getType()) || "Long".equals(field.getType()) || "Integer".equals(field.getType())
-					|| "Float".equals(field.getType()) || "BigDecimal".equals(field.getType())) 
+			if ("String".equals(field.getType()) || "Long".equals(field.getType()) || "Integer".equals(field.getType())) 
 			{
 				continue;
+			}
+			if("Float".equals(field.getType()) || "BigDecimal".equals(field.getType())) {
+				result.put("BigDecimal","import java.math.BigDecimal;");
 			}
 			if("Date".equals(field.getType())){
 				if("Date".equals(field.getType())){
